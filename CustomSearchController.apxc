@@ -16,6 +16,9 @@ public class CustomSearchController {
         List<SObjectResult> SObjectResultList = new List<SObjectResult>();
         Map<String, String> obFieldLabel = new Map<String, String>();
         Integer counter= 0;
+        if(searchText.length() < 2){
+           return SObjectResultList; 
+        }
         
         //
         for(SobjectType objType : schema.getglobaldescribe().values()) {
