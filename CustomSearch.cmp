@@ -1,0 +1,16 @@
+<aura:component controller="CustomSearchController" implements="forceCommunity:searchInterface,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="searchText" type="String" default=""/>
+    <aura:attribute type="list" name="recordList" />
+    
+    <lightning:card iconName="utility:search" title="Global Search">
+    <div class="slds-form-element slds-lookup" data-select="single">
+        <div class="slds-form-element__control">
+            <div class="slds-input-has-icon slds-input-has-icon--right">
+                <lightning:buttonIcon iconName="utility:search" variant="bare" onclick="{! c.handleClick }" alternativeText="Search" class="slds-input__icon" />
+                <ui:inputText value="{!v.searchText}" class="slds-lookup__search-input slds-input" placeholder="Search" />
+            </div>
+        </div>
+    </div>
+    <c:customSearchResultsList recordList="{!v.recordList}"/>
+    </lightning:card>
+</aura:component>
